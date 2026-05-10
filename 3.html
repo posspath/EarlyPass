@@ -63,7 +63,7 @@
     <h1 class="big">What Are The<br><em>Possibilities</em></h1>
     <p class="by-line">an interactive story by posspath</p>
     <div class="divider"></div>
-    <p class="intro-p">Kamu baru aja bangun tidur. Dengan semangat membara kamu memutuskan untuk stretching di depan rumah sambil menghirup udara pagi yang segar.</p>
+    <p class="intro-p">Pagi ini terasa sama seperti pagi biasanya, tetapi entah kenapa ada dorongan lebih dari diri kamu untuk cepat-cepat bangun dari kasurmu dan keluar rumah untuk menghirup udara segar. Kamu pun beranjak dari kasur dan membuka pintu rumah.</p>
     <button class="btn-main" id="btn-start">Mulai Cerita</button>
   </div>
 
@@ -91,9 +91,9 @@
 (function(){
   const endings = {
     beli_bubur: {
-      title: 'Beli Bubur',
-      poem: 'Kalian jalan berdua pagi itu buat beli bubur.\nKamu masih pake baju tidur.\nDia masih heran kamu berani ngajakin,\ntapi kamu lebih heran kenapa bisa seberani itu.\nSeenggaknya sekarang kamu tau\ndia pilih bubur diaduk atau ngga diaduk.',
-      tag: '🌇 Yang berani tanpa rencana'
+      title: 'Lucky You',
+      poem: '"Eh tunggu..".\n Kamu ngga tau kenapa manggil dia, bahkan kamu ngga tau dapet darimana keberanian ini.\n"Kamu udah sarapan?", tanya kamu,\nDia senyum tipis sambil menggelengkan kepala.\n"Mau beli bubur? deket sini ada yang enak." \n Dia mandang kamu agak lama dan kamu cuma bisa tahan napas. \n\n\n "yuk", jawab dia.',
+      tag: '🌇 Seenggaknya sekarang kamu tau dia tim bubur diaduk atau ngga diaduk'
     },
     nyesel_mampus: {
       title: 'Nyesel Mampus',
@@ -138,10 +138,10 @@
 
   const tree = {
     n: 1, ch: 'Babak I',
-    q: 'Tiba-tiba dari kejauhan kamu melihat seseorang yang bikin langkah kamu terhenti.\n\nDia.\n\nGebetan kamu. Orang yang udah kamu taksir diam-diam selama bertahun-tahun.',
+    q: 'Tiba-tiba dari kejauhan kamu melihat seseorang yang bikin langkah kamu terhenti.\nDia.\nGebetan kamu.\n Orang yang udah kamu taksir diam-diam selama bertahun-tahun.',
     s: 'Gimana nih?',
     c: [
-      { l: 'A', t: 'Menyapa dia', nx: {
+      { l: 'A', t: 'Sapa dia', nx: {
         n: 2, ch: 'Babak II',
         q: 'Kamu tarik nafas panjang sebelum memanggil namanya. Dia pun menengok dan berjalan ke arah kamu. Dia mungkin ngga tau, tapi di saat itu juga jantung kamu mendadak lupa caranya bekerja.',
         s: 'Ngomong apa sekarang?',
