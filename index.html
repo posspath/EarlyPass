@@ -132,8 +132,8 @@
     },
     b_jujur: { title: 'Kamu Sadar Kamu Gembel', poem: 'Dia ketawa.\n"Lucu banget," katanya.\nKalian ngobrol di depan pintu lama banget.\nDari situ semuanya mengalir sendiri.', tag: '💛 Jujur aja gpp' },
     b_ngeles: { title: 'Reflek Pamit', poem: 'Dia bingung tapi penasaran.\n"Terus sekarang udah beraknya? kok cepet?".\nKamu yang gugup reflek jawab dia\n"E-eh iya udah.. barusan.. d-di celana"\nDia langsung pamit tanpa ngucapin apa-apa', tag: '💀 Yang bener aja loh ya' },
-    b_nyesel: { title: 'Lega Tapi Nyesel', poem: 'Kamu lega.\nLima menit kemudian kamu nyesel.\nSejam kemudian masih nyesel.\nBesoknya juga masih nyesel.\nLusa juga.', tag: '💀 Yang milih aman tapi malah ngga tenang' },
-    b_ngejar: { title: 'Ngejar Dia', poem: 'Kamu buka pintu dan lari keluar.\nDia masih di ujung jalan.\nKamu panggil namanya.\nDia berhenti.\nBalik badan.\nDan senyum.', tag: '💛 Yang telat tapi tetep nyoba' },
+    b_nyesel: { title: 'Lega Tapi Nyesel', poem: 'Kamu lega, tapi ternyata ngga berlangsung lama.\nLima menit kemudian kamu nyesel.\nSejam kemudian masih nyesel.\nBesoknya juga masih nyesel.\nLusa juga.', tag: '💀 Andai waktu itu kamu langsung nyapa dia },
+    b_ngejar: { title: 'Ngejar Dia', poem: 'Kamu buka pintu dan lari keluar.\nDia masih di ujung jalan.\nKamu panggil namanya.\nDia berhenti balik badan dan senyum.\n\n "Mau masuk dulu?"', tag: '💛 Good ending mayb kalo kamu ngga bertindak bodoh seterusnya' },
   };
 
   const tree = {
@@ -214,8 +214,8 @@
           }},
           { l: 'B', t: 'Pura-pura ngga ada orang di rumah', nx: {
             n: 3, ch: 'Babak III',
-            q: 'Kamu diem. Matiin TV. Nahan napas.\n\nKetokan kedua.\n\nKamu masih diem.\n\nHening lama. Kamu ngintip dari celah jendela — dia udah ngga ada.',
-            s: 'Kamu ngerasa?',
+            q: 'Kamu diem. Matiin TV. Nahan napas.\n Sebisa mungkin kamu ngga ngeluarin suara sama sekali.\n\nKetokan kedua.\n\nKamu masih diem.\n\nHening lama, mungkin dia udah pergi pikir kamu.\n Kamu ngintip dari celah jendela. Dia udah ngga ada.',
+            s: 'Kamu bakal?',
             c: [
               { l: 'A', t: 'Lega... tapi langsung nyesel', nx: { e: 'b_nyesel' } },
               { l: 'B', t: 'Langsung keluar ngejar dia', nx: { e: 'b_ngejar' } }
