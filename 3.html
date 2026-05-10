@@ -1,0 +1,270 @@
+
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<style>
+  @import url('https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,300;0,400;1,300;1,400&family=Syne:wght@400;600;700&display=swap');
+
+  :root {
+    --bg: #ffffff;
+    --border: rgba(0,0,0,0.08);
+    --dark: #151024;
+    --blue: #027cff;
+    --blue-glow: rgba(2,124,255,0.07);
+    --text: #151024;
+    --muted: rgba(21,16,36,0.72);
+  }
+
+  * { box-sizing: border-box; margin: 0; padding: 0; }
+
+  #tws { background: var(--bg); min-height: 100dvh; display: flex; align-items: center; justify-content: center; padding: 2.5rem 2rem; font-family: 'Syne', sans-serif; }
+  .wrap { max-width: 600px; width: 100%; text-align: center; animation: fadeUp 0.65s ease both; }
+  @keyframes fadeUp { from { opacity: 0; transform: translateY(16px); } to { opacity: 1; transform: translateY(0); } }
+  .hidden { display: none !important; }
+
+  h1.big { font-family: 'Cormorant Garamond', serif; font-weight: 300; font-size: clamp(2.8rem, 10vw, 5.2rem); line-height: 0.95; letter-spacing: -0.02em; color: var(--dark); margin-bottom: 0.3rem; }
+  h1.big em { font-style: italic; color: var(--blue); }
+  .by-line { font-size: 0.68rem; letter-spacing: 0.28em; color: var(--muted); text-transform: uppercase; margin-bottom: 2.5rem; }
+  .divider { width: 36px; height: 1px; background: var(--blue); opacity: 0.4; margin: 0 auto 2rem; }
+  .intro-p { font-family: 'Cormorant Garamond', serif; font-size: clamp(1rem, 3vw, 1.1rem); line-height: 1.9; color: var(--muted); max-width: 420px; margin: 0 auto 2.5rem; }
+
+  .btn-main { background: transparent; border: 1px solid var(--blue); color: var(--blue); font-family: 'Syne', sans-serif; font-size: 0.72rem; letter-spacing: 0.25em; text-transform: uppercase; padding: 0.9rem 2.5rem; cursor: pointer; transition: all 0.3s ease; width: 100%; max-width: 260px; }
+  .btn-main:hover { background: var(--blue-glow); letter-spacing: 0.3em; }
+
+  .prog-wrap { margin-bottom: 2rem; }
+  .prog-meta { display: flex; justify-content: space-between; font-size: 0.62rem; letter-spacing: 0.2em; color: var(--muted); text-transform: uppercase; margin-bottom: 0.4rem; }
+  .prog-bar { height: 1px; background: rgba(0,0,0,0.1); }
+  .prog-fill { height: 1px; background: var(--blue); transition: width 0.6s ease; }
+
+  .q-chap { font-size: 0.62rem; letter-spacing: 0.3em; color: var(--blue); text-transform: uppercase; margin-bottom: 1.4rem; opacity: 0.8; }
+  .q-main { font-family: 'Cormorant Garamond', serif; font-weight: 300; font-size: clamp(1.1rem, 4vw, 1.65rem); line-height: 1.75; color: var(--dark); margin-bottom: 0.6rem; white-space: pre-line; }
+  .q-hint { font-family: 'Cormorant Garamond', serif; font-style: italic; color: var(--muted); font-size: clamp(0.95rem, 3vw, 1rem); margin-bottom: 2rem; }
+
+  .choices { display: flex; flex-direction: column; gap: 0.7rem; }
+  .choice { background: var(--bg); border: 1px solid var(--border); color: var(--text); font-family: 'Syne', sans-serif; font-size: clamp(0.8rem, 2.5vw, 0.82rem); letter-spacing: 0.04em; padding: 1rem 1.3rem; text-align: left; cursor: pointer; transition: all 0.25s ease; display: flex; gap: 0.9rem; align-items: flex-start; line-height: 1.65; }
+  .choice:hover { border-color: var(--blue); background: var(--blue-glow); }
+  .c-lbl { font-family: 'Cormorant Garamond', serif; font-style: italic; color: var(--blue); font-size: 1rem; min-width: 0.9rem; line-height: 1.4; flex-shrink: 0; }
+
+  .end-badge { font-size: 0.62rem; letter-spacing: 0.35em; text-transform: uppercase; color: var(--blue); margin-bottom: 1.3rem; opacity: 0.85; }
+  .end-title { font-family: 'Cormorant Garamond', serif; font-weight: 300; font-size: clamp(2rem, 8vw, 3.8rem); line-height: 1.05; color: var(--dark); margin-bottom: 1rem; }
+  .end-title em { font-style: italic; color: var(--blue); }
+  .end-poem { font-family: 'Cormorant Garamond', serif; font-style: italic; font-size: clamp(1rem, 3vw, 1.05rem); line-height: 2; color: var(--muted); max-width: 400px; margin: 0 auto 1.8rem; }
+  .end-tag { font-size: 0.62rem; letter-spacing: 0.18em; text-transform: uppercase; color: var(--muted); border: 1px solid var(--border); padding: 0.35rem 0.85rem; display: inline-block; margin-bottom: 1.8rem; }
+  .btn-restart { background: transparent; border: 1px solid var(--border); color: var(--muted); font-family: 'Syne', sans-serif; font-size: 0.64rem; letter-spacing: 0.22em; text-transform: uppercase; padding: 0.75rem 1.7rem; cursor: pointer; transition: all 0.3s ease; width: 100%; max-width: 240px; }
+  .btn-restart:hover { border-color: var(--blue); color: var(--blue); }
+
+  @media (max-width: 480px) {
+    #tws { padding: 3rem 1.5rem 4rem; align-items: flex-start; }
+    .btn-main { max-width: 100%; }
+    .btn-restart { max-width: 100%; }
+  }
+</style>
+
+<div id="tws">
+  <div class="wrap" id="p-intro">
+    <h1 class="big">What Are The<br><em>Possibilities</em></h1>
+    <p class="by-line">an interactive story by posspath</p>
+    <div class="divider"></div>
+    <p class="intro-p">Kamu baru aja bangun tidur. Dengan semangat membara kamu memutuskan untuk stretching di depan rumah sambil menghirup udara pagi yang segar.</p>
+    <button class="btn-main" id="btn-start">Mulai Cerita</button>
+  </div>
+
+  <div class="wrap hidden" id="p-q">
+    <div class="prog-wrap">
+      <div class="prog-meta"><span>Perjalananmu</span><span id="pn">1 / 4</span></div>
+      <div class="prog-bar"><div class="prog-fill" id="pf" style="width:0%"></div></div>
+    </div>
+    <p class="q-chap" id="qc"></p>
+    <h2 class="q-main" id="qm"></h2>
+    <p class="q-hint" id="qh"></p>
+    <div class="choices" id="ch-box"></div>
+  </div>
+
+  <div class="wrap hidden" id="p-end">
+    <p class="end-badge">Ending kamu</p>
+    <h2 class="end-title" id="et"></h2>
+    <p class="end-poem" id="ep"></p>
+    <span class="end-tag" id="etg"></span><br><br>
+    <button class="btn-restart" id="btn-restart">↩ Mulai Lagi</button>
+  </div>
+</div>
+
+<script>
+(function(){
+  const endings = {
+    beli_bubur: {
+      title: 'Beli Bubur',
+      poem: 'Kalian jalan berdua pagi itu buat beli bubur.\nKamu masih pake baju tidur.\nDia masih heran kamu berani ngajakin,\ntapi kamu lebih heran kenapa bisa seberani itu.\nSeenggaknya sekarang kamu tau\ndia pilih bubur diaduk atau ngga diaduk.',
+      tag: '🌇 Yang berani tanpa rencana'
+    },
+    nyesel_mampus: {
+      title: 'Nyesel Mampus',
+      poem: 'Dia udah dateng ke depan muka kamu persis.\nAda kesempatan yang bagus buat ngobrol,\ntapi kamu malah bengong.\nSelamat,\nhari ini kamu bakal kepikiran kejadian ini terus.',
+      tag: '💀 Yang otaknya hang di momen paling penting'
+    },
+    terlalu_ngebet: {
+      title: 'Terlalu Ngebet Issss',
+      poem: 'Kamu emang jujur,\ntapi terlalu jujur loh ya.\nAda cara yang lebih enak buat ngungkapinnya,\ndan hari ini bukan hari itu.',
+      tag: '💀 Yang skip semua babak pemanasan'
+    },
+    ngobrol_lupa_waktu: {
+      title: 'Ngobrol Sampai Lupa Waktu',
+      poem: 'Ngga ada yang confess.\nNgga ada label apapun.\nTapi waktu dia bilang bye,\nrasanya berat banget buat jawab.',
+      tag: '💛 Yang bahagia dengan hal yang ngga perlu label'
+    },
+    kucing_tidak_ada: {
+      title: 'Kucing Yang Tidak Ada',
+      poem: 'Kamu ketauan ngafalin rutenya.\nDia kabur dengan dalih kucing.\nKalian berdua tau itu bohong,\ntapi ngga ada yang ngomong apa-apa.',
+      tag: '😂 Yang sama-sama pura-pura'
+    },
+    sandal_jepit: {
+      title: 'Ikut Jogging Dengan Sandal Jepit',
+      poem: 'Kamu bahkan belum sarapan.\nBaju tidur, sandal jepit,\nnafas ngos-ngosan dari menit pertama.\nTapi kamu tetep ikut.\nDan dia ngga protes sama sekali.',
+      tag: '🏃 Yang nekat tanpa persiapan'
+    },
+    jogging_kenceng: {
+      title: 'Dia Jogging Lebih Kenceng',
+      poem: 'Kamu terlalu tau.\nDan itu nakutin dia.\nMungkin lain kali,\npura-pura ngga tau dulu.',
+      tag: '😂 Yang terlalu jujur soal hal yang harusnya dirahasiain'
+    },
+    untung_nyapa: {
+      title: 'Untung Tadi Nyapa',
+      poem: 'Ngga ada yang dramatis.\nNgga ada confess.\nTapi kalau tadi kamu diem aja,\nsemua ini ngga bakal terjadi.\nKadang cukup satu langkah kecil.',
+      tag: '🌿 Yang hidupnya berubah gara-gara satu keberanian kecil'
+    },
+    b_jujur: { title: 'Kaget Liat Kamu', poem: 'Dia ketawa.\n"Lucu banget," katanya.\nKalian ngobrol di depan pintu lama banget.\nDari situ semuanya mengalir sendiri.', tag: '💛 Yang jujurnya bikin semuanya cair' },
+    b_ngeles: { title: 'Buru-buru Katanya', poem: 'Dia manggut-manggut.\nTapi keliatan ngga percaya.\nCanggung.\nDia pamit cepet.\nKamu nutup pintu dan menyesali\nsemua keputusan hidup kamu.', tag: '💀 Yang ngeles tapi ketauan' },
+    b_nyesel: { title: 'Lega Tapi Nyesel', poem: 'Kamu lega.\nLima menit kemudian kamu nyesel.\nSejam kemudian masih nyesel.\nBesoknya juga masih nyesel.\nLusa juga.', tag: '💀 Yang milih aman tapi malah ngga tenang' },
+    b_ngejar: { title: 'Ngejar Dia', poem: 'Kamu buka pintu dan lari keluar.\nDia masih di ujung jalan.\nKamu panggil namanya.\nDia berhenti.\nBalik badan.\nDan senyum.', tag: '💛 Yang telat tapi tetep nyoba' },
+  };
+
+  const tree = {
+    n: 1, ch: 'Babak I',
+    q: 'Tiba-tiba dari kejauhan kamu melihat seseorang yang bikin langkah kamu terhenti.\n\nDia.\n\nGebetan kamu. Orang yang udah kamu taksir diam-diam selama bertahun-tahun.',
+    s: 'Gimana nih?',
+    c: [
+      { l: 'A', t: 'Menyapa dia', nx: {
+        n: 2, ch: 'Babak II',
+        q: 'Kamu tarik nafas panjang sebelum memanggil namanya. Dia pun menengok dan berjalan ke arah kamu. Dia mungkin ngga tau, tapi di saat itu juga jantung kamu mendadak lupa caranya bekerja.',
+        s: 'Ngomong apa sekarang?',
+        c: [
+          { l: 'A', t: '"Kamu ngapain di sini?"', nx: {
+            n: 3, ch: 'Babak III',
+            q: 'Dia udah sampe di depan kamu. Dianya senyum biasa, sementara kamu udah hampir pingsan duluan.\n\n"Kesini aja," jawabnya. "Emangnya ngga boleh?"\n\n"Boleh sih, asal ada keperluan."\n\nDia ketawa kecil. "Keperluan aku ya kamu."\n\nDunia kamu berhenti sebentar.',
+            s: 'Gimana reaksi kamu?',
+            c: [
+              { l: 'A', t: 'Bengong total', nx: {
+                n: 4, ch: 'Babak IV',
+                q: 'Kamu diem. Mulut setengah menganga.\n\nDia excited nungguin apa yang bakal keluar dari mulut kamu, tapi nyatanya ngga ada. Senyumnya pun pelan-pelan memudar.\n\n"...Kamu ngga papa?" tanya dia mastiin kamu ngga kesambet.\n\n"Hah-hh? O-ohh. Iya."\n\nHening. Suasananya jadi awkward banget.\n\n"Oke," dia bilang akhirnya. "Aku duluan ya."\n\nDia balik badan dan mulai jalan.',
+                s: 'Kamu bakal?',
+                c: [
+                  { l: 'A', t: 'Cegat dia supaya ngga pergi', nx: { e: 'beli_bubur' } },
+                  { l: 'B', t: 'Biarin dia pergi', nx: { e: 'nyesel_mampus' } }
+                ]
+              }},
+              { l: 'B', t: '"S-serius?"', nx: {
+                n: 4, ch: 'Babak IV',
+                q: '"S-serius?"\n\nDia senyum. "Bercanda sih. Tapi kalo mau serius juga boleh."\n\nKamu yang udah hampir pingsan harus milih sekarang.',
+                s: 'Jawab apa?',
+                c: [
+                  { l: 'A', t: '"Mau." (sambil natap dia pake puppy eyes)', nx: { e: 'terlalu_ngebet' } },
+                  { l: 'B', t: '"Boleh." (sambil ngeluarin senyum flirty)', nx: { e: 'ngobrol_lupa_waktu' } }
+                ]
+              }}
+            ]
+          }},
+          { l: 'B', t: '"Eh, tumben lewat sini?"', nx: {
+            n: 3, ch: 'Babak III',
+            q: 'Ternyata dia lagi jogging. Earphone di kuping, rambut sedikit berantakan, nafas masih ngos-ngosan dikit.\n\n"Emang kamu hafal rute aku?" dia balik nanya.\n\nKamu: 😐',
+            s: 'Jawab apa?',
+            c: [
+              { l: 'A', t: '"Ya ngga hafal juga sih, basa-basi aja."', nx: {
+                n: 4, ch: 'Babak IV',
+                q: '"Basa-basi busuk," katanya sambil ketawa.\n\nKamu ikut ketawa. "Ya namanya juga basa-basi."\n\n"Basa-basi kok spesifik banget tau rute orang."\n\n"Kebetulan."\n\n"Kebetulan tiap hari?"\n\nKamu: 🧍',
+                s: 'Mau ngapain sekarang?',
+                c: [
+                  { l: 'A', t: 'Makin ngeles', nx: { e: 'kucing_tidak_ada' } },
+                  { l: 'B', t: '"Oke ketauan deh. Aku emang hafal."', nx: { e: 'sandal_jepit' } }
+                ]
+              }},
+              { l: 'B', t: '"Iya emang, kenapa?"', nx: {
+                n: 4, ch: 'Babak IV',
+                q: 'Dia angkat alis. Kayak ngga nyangka kamu sepede itu.\n\n"Berarti kamu tau aku biasanya lewat mana?"',
+                s: 'Jawab apa?',
+                c: [
+                  { l: 'A', t: '"Tau."', nx: { e: 'jogging_kenceng' } },
+                  { l: 'B', t: 'Ngga bisa jawab, malah ketawa-ketawa', nx: { e: 'untung_nyapa' } }
+                ]
+              }}
+            ]
+          }}
+        ]
+      }},
+      { l: 'B', t: 'Cepet-cepet masuk rumah sebelum dia liat kamu', nx: {
+        n: 2, ch: 'Babak II',
+        q: 'Kamu buru-buru masuk. Pintu nutup. Aman.\n\n...atau emang aman?\n\nTernyata dia ngeliat kamu masuk. Dan sekarang dia ngetuk pintu.',
+        s: 'Kamu mau?',
+        c: [
+          { l: 'A', t: 'Buka pintunya', nx: {
+            n: 3, ch: 'Babak III',
+            q: 'Kamu buka pintu. Dia ada di sana. Ekspresinya antara bingung dan nahan senyum.\n\n"Tadi aku liat kamu masuk."\n\nMampus.',
+            s: 'Kamu jawab apa?',
+            c: [
+              { l: 'A', t: '"Iya, aku kaget liat kamu."', nx: { e: 'b_jujur' } },
+              { l: 'B', t: '"Hah? Oh iya aku lagi buru-buru soalnya."', nx: { e: 'b_ngeles' } }
+            ]
+          }},
+          { l: 'B', t: 'Pura-pura ngga ada orang di rumah', nx: {
+            n: 3, ch: 'Babak III',
+            q: 'Kamu diem. Matiin TV. Nahan napas.\n\nKetokan kedua.\n\nKamu masih diem.\n\nHening lama. Kamu ngintip dari celah jendela — dia udah ngga ada.',
+            s: 'Kamu ngerasa?',
+            c: [
+              { l: 'A', t: 'Lega... tapi langsung nyesel', nx: { e: 'b_nyesel' } },
+              { l: 'B', t: 'Langsung keluar ngejar dia', nx: { e: 'b_ngejar' } }
+            ]
+          }}
+        ]
+      }}
+    ]
+  };
+
+  function show(id) {
+    ['p-intro','p-q','p-end'].forEach(p => document.getElementById(p).classList.add('hidden'));
+    const el = document.getElementById(id);
+    el.classList.remove('hidden');
+    el.style.animation = 'none';
+    void el.offsetWidth;
+    el.style.animation = 'fadeUp 0.65s ease both';
+    window.scrollTo({ top: 0, behavior: 'smooth' });
+  }
+
+  function renderQ(node) {
+    document.getElementById('qc').textContent = node.ch;
+    document.getElementById('qm').textContent = node.q;
+    document.getElementById('qh').textContent = node.s;
+    document.getElementById('pf').style.width = ((node.n - 1) / 4 * 100) + '%';
+    document.getElementById('pn').textContent = node.n + ' / 4';
+    const box = document.getElementById('ch-box');
+    box.innerHTML = '';
+    node.c.forEach(ch => {
+      const b = document.createElement('button');
+      b.className = 'choice';
+      b.innerHTML = `<span class="c-lbl">${ch.l}</span><span>${ch.t}</span>`;
+      b.onclick = () => ch.nx.e ? showEnd(ch.nx.e) : renderQ(ch.nx);
+      box.appendChild(b);
+    });
+    show('p-q');
+  }
+
+  function showEnd(key) {
+    const e = endings[key];
+    const words = e.title.split(' ');
+    const last = words.pop();
+    document.getElementById('et').innerHTML = words.join(' ') + (words.length ? ' ' : '') + `<em>${last}</em>`;
+    document.getElementById('ep').innerHTML = e.poem.split('\n').join('<br>');
+    document.getElementById('etg').textContent = e.tag;
+    show('p-end');
+  }
+
+  document.getElementById('btn-start').onclick = () => renderQ(tree);
+  document.getElementById('btn-restart').onclick = () => show('p-intro');
+})();
+</script>
